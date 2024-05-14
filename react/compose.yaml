@@ -1,0 +1,25 @@
+# Docker Compose file for deploying a service using a custom image
+# and environment variables in a production environment.
+
+services:
+  your-service-name:
+    # Docker image to be used for the service
+    image: dockerusername/image-name:tag
+
+    # Environment variables for the service
+    environment:
+      NODE_ENV: production
+
+    # Optional: Load environment variables from a file
+    env_file:
+      - .env.prod
+
+    # Port mapping for the service
+    ports:
+      - 3000:3000
+
+    # Restart policy for the container
+    restart: always
+
+    # Name of the container
+    container_name: my-container
