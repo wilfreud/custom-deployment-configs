@@ -20,3 +20,5 @@ Note that for GitHub Actions, the default deployment strategy is to publish the 
 PS: The default package manager is pnpm, but there are additional comments for yarn
 
 PPS: Most of those files are AI generated, but still tested multiple times in productio environment (honestly)
+
+NOTE: Most of the deployment processes require the configuration of repositories' secrets and variables. Checkout my NPM packaque (Quirgo)[https://github.com/wilfreud/quirgo-cli] to see how to make it easy.
