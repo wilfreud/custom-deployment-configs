@@ -2,6 +2,10 @@
 
 This is not a project, but rather a "codebase", a collection of configuration files that you can copy and paste for your projects, instead of rewriting them every time. Basically what you need to dockerize your app and automate its deployment with GitHub Actions.
 
+### Note: Mostly AI generated (but tested and approved)
+    - needs to udpdated later
+
+
 Frameworks:
 
 - React
