@@ -1,0 +1,45 @@
+services:
+  myservice:
+    image: repo/image:${IMAGE_SHA}
+    environment:
+      NODE_ENV: production
+      CURRENT_ENV: production
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 10s
+        order: start-first
+      restart_policy:
+        condition: any
+        max_attempts: 3
+    restart: always
+    container_name: myservice
+
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'apk',
+          'add',
+          '--no-cache',
+          'curl',
+          '&&',
+          'curl',
+          '-f',
+          'http://localhost:5000/healthcheck',
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+    labels:
+      - 'app.name=myapp-backend'
+      - 'app.environment=prod'
+      - 'app.type=api'
+
